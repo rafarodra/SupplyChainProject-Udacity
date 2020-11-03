@@ -158,7 +158,7 @@ contract SupplyChain {
   function harvestItem(uint _upc, address _originFarmerID, string memory _originFarmName, string memory _originFarmInformation, string memory _originFarmLatitude, string memory _originFarmLongitude, string memory _productNotes) public 
   {
     // Add the new item as part of Harvest
-    Item memory newHarvestedItem = Item(sku, _upc, msg.sender, _originFarmerID, _originFarmName, _originFarmInformation,  _originFarmLatitude, _originFarmLongitude, (_upc + sku), _productNotes, 0, State.Harvested, address(0x0), address(0x0), address(0x0)); 
+    Item memory newHarvestedItem = Item(sku, _upc,  _originFarmerID, _originFarmerID, _originFarmName, _originFarmInformation,  _originFarmLatitude, _originFarmLongitude, (_upc + sku), _productNotes, 0, State.Harvested, address(0x0), address(0x0), address(0x0)); 
     items[_upc] = newHarvestedItem; 
 
     // Increment sku
@@ -255,26 +255,32 @@ contract SupplyChain {
   // Use the above modifiers to check if the item is shipped
   function receiveItem(uint _upc) public 
     // Call modifier to check if upc has passed previous supply chain stage
+    shipped(_upc)
     
     // Access Control List enforced by calling Smart Contract / DApp
     {
     // Update the appropriate fields - ownerID, retailerID, itemState
-    
+    items[_upc].ownerID = msg.sender; 
+    items[_upc].retailerID = msg.sender; 
+    items[_upc].itemState = State.Received; 
     // Emit the appropriate event
-    
+    emit Received(_upc); 
   }
 
   // Define a function 'purchaseItem' that allows the consumer to mark an item 'Purchased'
   // Use the above modifiers to check if the item is received
   function purchaseItem(uint _upc) public 
     // Call modifier to check if upc has passed previous supply chain stage
-    
+    received(_upc)
     // Access Control List enforced by calling Smart Contract / DApp
     {
     // Update the appropriate fields - ownerID, consumerID, itemState
+    items[_upc].ownerID = msg.sender;
+    items[_upc].consumerID = msg.sender;
+    items[_upc].itemState = State.Purchased;
     
     // Emit the appropriate event
-    
+    emit Purchased(_upc); 
   }
 
   // Define a function 'fetchItemBufferOne' that fetches the data
@@ -291,8 +297,17 @@ contract SupplyChain {
   ) 
   {
   // Assign values to the 8 parameters
-  
-    
+  Item memory myItem = items[_upc]; 
+
+  itemSKU = myItem.sku; 
+  itemUPC = _upc; 
+  ownerID = myItem.ownerID;
+  originFarmerID = myItem.originFarmerID;
+  originFarmName = myItem.originFarmName;
+  originFarmInformation = myItem.originFarmInformation;
+  originFarmLatitude = myItem.originFarmLatitude;
+  originFarmLongitude = myItem.originFarmLongitude;
+
   return 
   (
   itemSKU,
@@ -321,7 +336,17 @@ contract SupplyChain {
   ) 
   {
     // Assign values to the 9 parameters
-  
+    Item memory myItem = items[_upc]; 
+
+    itemSKU = myItem.sku; 
+    itemUPC = _upc;
+    productID = myItem.productID;
+    productNotes = myItem.productNotes;
+    productPrice = myItem.productPrice;
+    itemState = uint256(myItem.itemState);
+    distributorID = myItem.distributorID;
+    retailerID = myItem.retailerID;
+    consumerID = myItem.consumerID;
     
   return 
   (
