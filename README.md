@@ -21,10 +21,6 @@ These instructions will get you a copy of the project up and running on your loc
 
 Please make sure you've already installed ganache-cli, Truffle and enabled MetaMask extension in your browser.
 
-```
-Give examples (to be clarified)
-```
-
 ### Installing
 
 A step by step series of examples that tell you have to get a development env running
@@ -32,20 +28,20 @@ A step by step series of examples that tell you have to get a development env ru
 Clone this repository:
 
 ```
-git clone https://github.com/udacity/nd1309/tree/master/course-5/project-6
+git clone https://github.com/rafarodra/SupplyChainProject-Udacity/tree/SupplyChainProject-Udacity
 ```
 
-Change directory to ```project-6``` folder and install all requisite npm packages (as listed in ```package.json```):
+Change directory to ```myCoffeeSupplyChain``` folder and install all requisite npm packages (as listed in ```package.json```):
 
 ```
-cd project-6
+cd myCoffeeSupplyChain
 npm install
 ```
 
 Launch Ganache:
 
 ```
-ganache-cli -m "spirit supply whale amount human item harsh scare congress discover talent hamster"
+You can use the cli or the graphic client
 ```
 
 Your terminal should look something like this:
@@ -64,7 +60,7 @@ Your terminal should look something like this:
 
 This will create the smart contract artifacts in folder ```build\contracts```.
 
-Migrate smart contracts to the locally running blockchain, ganache-cli:
+Migrate smart contracts to the locally running blockchain, ganache:
 
 ```
 truffle migrate
@@ -73,6 +69,10 @@ truffle migrate
 Your terminal should look something like this:
 
 ![truffle test](images/truffle_migrate.png)
+
+![truffle test](images/truffle_migrate2.png)
+
+![truffle test](images/truffle_migrate3.png)
 
 Test smart contracts:
 
@@ -93,18 +93,10 @@ npm run dev
 ## Built With
 
 * [Ethereum](https://www.ethereum.org/) - Ethereum is a decentralized platform that runs smart contracts
-* [IPFS](https://ipfs.io/) - IPFS is the Distributed Web | A peer-to-peer hypermedia protocol
-to make the web faster, safer, and more open.
-* [Truffle Framework](http://truffleframework.com/) - Truffle is the most popular development framework for Ethereum with a mission to make your life a whole lot easier.
-
-
-## Authors
-
-See also the list of [contributors](https://github.com/your/project/contributors.md) who participated in this project.
+* [Truffle Suite](https://www.trufflesuite.com/) - Truffle is the most popular development framework for Ethereum with a mission to make your life a whole lot easier.
 
 ## Acknowledgments
 
 * Solidity
 * Ganache-cli
 * Truffle
-* IPFS
