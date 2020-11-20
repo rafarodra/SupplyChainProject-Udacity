@@ -17,6 +17,15 @@ The DApp User Interface when running should look like...
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
+This project was created using: 
+
+```
+Truffle version: v5.1.48
+Ganache: v2.5.4
+npm: v6.14.8
+NodeJS: v12.18.2
+```
+
 ### Prerequisites
 
 Please make sure you've already installed ganache-cli, Truffle and enabled MetaMask extension in your browser.

@@ -1,0 +1,33 @@
+============================
+CONTRACT
+============================
+I created two contracts for Udacity's Blockchaing Nano Degree course. 
+
+First Contract: 
+Txn Address: https://rinkeby.etherscan.io/tx/0x5a3fd72658e9c8123dd86932fba0e3a2e40134429c35851740e74470e0785011
+Contract Address: https://rinkeby.etherscan.io/address/0x9fc4355d18854df70d4e1fbad3b5abdecde0b81e
+
+Second Contrac:
+Txn Address: https://rinkeby.etherscan.io/tx/0x6e658ac49371678e809a5e49d01720fd4d94fd50f1249cba79e629c92cfd02da
+Contract Address: https://rinkeby.etherscan.io/address/0x1668446C5dde6E93fFF7208233708FE6328A8b9A
+
+============================
+LIBARIES VERSION
+============================
+Truffle version: v5.1.48
+Ganache: v2.5.4
+npm: v6.14.8
+node: v12.18.2
+web3: 1.2.1
+
+============================
+UML DIAGRAMS
+============================
+All UML diagrams are in the images/UML folder.
+
+============================
+ADDITIONAL LIBRARIES USED
+============================
+Libraries used: 
+1. truffle-hdwallet-provider: It was used to keep the mnemonic secret and to connect to Infura.
+2. truffe: To compile, test and migrate contracts
